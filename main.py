@@ -16,12 +16,15 @@ if not GEMINI_API_KEY:
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
 
 # Initialize FastAPI App
+import logging
 from fastapi import FastAPI
 
+logging.basicConfig(level=logging.DEBUG)
 app = FastAPI()
 
 @app.get("/")
 def home():
+    logging.debug("Home endpoint hit!")
     return {"message": "Backend is running!"}
 
 # CORS Middleware (Allows frontend to access the backend)
