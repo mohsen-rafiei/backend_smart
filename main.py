@@ -28,9 +28,11 @@ def home():
     return {"message": "Backend is running!"}
 
 # CORS Middleware (Allows frontend to access the backend)
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Update if frontend is hosted elsewhere
+    allow_origins=["https://your-frontend-url.vercel.app", "http://localhost:3000"],  # Update with your frontend's URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
